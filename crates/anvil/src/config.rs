@@ -834,7 +834,9 @@ impl NodeConfig {
         self
     }
 
-    #[deprecated(note = "Use with_no_storage_caching(); with_storage_caching() sets no_storage_caching (disables caching).")]
+    #[deprecated(
+        note = "Use with_no_storage_caching(); with_storage_caching() sets no_storage_caching (disables caching)."
+    )]
     #[must_use]
     pub fn with_storage_caching(self, no_storage_caching: bool) -> Self {
         self.with_no_storage_caching(no_storage_caching)

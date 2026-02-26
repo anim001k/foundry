@@ -829,9 +829,15 @@ impl NodeConfig {
     }
 
     #[must_use]
-    pub fn with_storage_caching(mut self, storage_caching: bool) -> Self {
-        self.no_storage_caching = storage_caching;
+    pub fn with_no_storage_caching(mut self, no_storage_caching: bool) -> Self {
+        self.no_storage_caching = no_storage_caching;
         self
+    }
+
+    #[deprecated(note = "Use with_no_storage_caching(); with_storage_caching() sets no_storage_caching (disables caching).")]
+    #[must_use]
+    pub fn with_storage_caching(self, no_storage_caching: bool) -> Self {
+        self.with_no_storage_caching(no_storage_caching)
     }
 
     /// Sets the `eth_rpc_url` to use when forking

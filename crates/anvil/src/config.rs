@@ -834,14 +834,6 @@ impl NodeConfig {
         self
     }
 
-    #[deprecated(
-        note = "Use with_no_storage_caching(); with_storage_caching() sets no_storage_caching (disables caching)."
-    )]
-    #[must_use]
-    pub fn with_storage_caching(self, no_storage_caching: bool) -> Self {
-        self.with_no_storage_caching(no_storage_caching)
-    }
-
     /// Sets the `eth_rpc_url` to use when forking
     #[must_use]
     pub fn with_eth_rpc_url<U: Into<String>>(mut self, eth_rpc_url: Option<U>) -> Self {

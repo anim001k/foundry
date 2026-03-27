@@ -139,6 +139,8 @@ impl Base {
         }
     }
 
+    /// Detects a prefixed base by stripping the 2-char prefix and parsing the remainder.
+    /// `PosOverflow` is treated as a valid match since the digits are correct for the base.
     fn detect_prefixed(s: &str, radix: u32, base: Self, label: &str) -> Result<Self> {
         match u64::from_str_radix(&s[2..], radix) {
             Ok(_) => Ok(base),
